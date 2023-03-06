@@ -31,8 +31,8 @@ const onDelete = (id) => {
 }
 
 const onToggle = (id) => {
-  console.log(id);
-}
+  setTasks(tasks.map((task) => task.id === id ? {...task, reminder: !task.reminder} : task)
+)}
 
   return (
     <div className="container">
