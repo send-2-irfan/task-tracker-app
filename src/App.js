@@ -30,10 +30,14 @@ const onDelete = (id) => {
   setTasks(tasks.filter((task) => task.id !== id));
 }
 
+const onToggle = (id) => {
+  console.log(id);
+}
+
   return (
     <div className="container">
       <Header title={"React Task Tracker"} />
-      {tasks.length > 0 ? (<Tasks tasks={tasks} onDelete={onDelete} />) : 'No Tasks To Show'}
+      {tasks.length > 0 ? (<Tasks tasks={tasks} onDelete={onDelete} onToggle={onToggle} />) : 'No Tasks To Show'}
     </div>
   );
 }
