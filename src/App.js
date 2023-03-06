@@ -26,12 +26,14 @@ const App =() => {
     },
 ])
 
-console.log(tasks.text)
+const onDelete = (id) => {
+  setTasks(tasks.filter((task) => task.id !== id));
+}
 
   return (
     <div className="container">
       <Header title={"React Task Tracker"} />
-      <Tasks tasks={tasks} />
+      {tasks.length > 0 ? (<Tasks tasks={tasks} onDelete={onDelete} />) : 'No Tasks To Show'}
     </div>
   );
 }

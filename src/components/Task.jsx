@@ -1,9 +1,7 @@
-
-
-function Task({ task }) {
+function Task({ task, onDelete }) {
   return (
     <div className='task'>
-        <h3>{task.text}</h3> 
+        <h3 onClick={()=>onDelete(task.id)}>{task.text}</h3> 
         <p>{task.day}</p>
     </div>
   )
