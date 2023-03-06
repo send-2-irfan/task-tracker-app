@@ -1,14 +1,21 @@
 import React from 'react'
 
-function Button({ text, color}) {
+function Button({ text, color, onClick}) {
   return (
-    <button className={`btn`} style={{backgroundColor: color}}>{text}</button>
+    <button 
+        className={`btn`} 
+        style={{backgroundColor: color}}
+        onClick={onClick}
+        > 
+        {text}
+    </button>
   )
 }
 
 Button.defaultProps = {
     color: 'steelblue'
 }
+
 
 
 export default Button
