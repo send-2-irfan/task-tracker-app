@@ -18,7 +18,13 @@ const [showAddTask, setShowAddTask] = useState(false);
   .catch(err => alert(err))
  },[])
 
-const onDelete = (id) => {
+const onDelete = async (id) => {
+  await fetch(
+    `http://localhost:5000/tasks/${id}`,
+    {
+      method: 'DELETE'
+    }
+    )
   setTasks(tasks.filter((task) => task.id !== id));
 }
 
@@ -26,10 +32,18 @@ const onToggle = (id) => {
   setTasks(tasks.map((task) => task.id === id ? {...task, reminder: !task.reminder} : task)
 )}
 
-const onAdd = (task) => {
-  let id = v4();
-  const newTask = {id, ...task};
-  setTasks([...tasks, newTask]);
+const onAdd = async (task) => {
+  const res = await fetch('http://localhost:5000/tasks', {
+    method: 'POST',
+    headers: {
+      'Content-type': 'application/json'
+    },
+    body: JSON.stringify(task)
+  })
+
+  const data = await res.json();
+
+  setTasks([...tasks, data]);
 }
 
   return (

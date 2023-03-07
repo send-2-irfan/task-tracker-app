@@ -25,8 +25,8 @@ function AddTask({ addTask }) {
         <input type='text' placeholder='Add Task' value={text} onChange={(e)=> setText(e.target.value)} />
       </div>
       <div className='form-control'>
-        <label>Day & Time</label>
-        <input type='date' placeholder='Add Day & Time'value={day} onChange={(e)=> setDay(e.target.value)} />
+        <label>Date</label>
+        <input type='datetime-local' placeholder='Add Day & Time'value={day} onChange={(e)=> setDay(e.target.value)} />
       </div>
       <div className='form-control form-control-check'>
         <label>Soft Reminder</label>
