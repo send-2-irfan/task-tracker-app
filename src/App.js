@@ -35,10 +35,14 @@ const onToggle = (id) => {
   setTasks(tasks.map((task) => task.id === id ? {...task, reminder: !task.reminder} : task)
 )}
 
+const onAdd = (task) => {
+  console.log('task : ' + task);
+}
+
   return (
     <div className="container">
       <Header title={"React Task Tracker"} />
-      <AddTask />
+      <AddTask addTask={onAdd} />
       {tasks.length > 0 ? (<Tasks tasks={tasks} onDelete={onDelete} onToggle={onToggle} />) : 'No Tasks To Show'}
     </div>
   );
