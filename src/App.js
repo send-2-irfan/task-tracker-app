@@ -3,6 +3,7 @@ import Header from './components/Header';
 import Tasks from './components/Tasks';
 import { useState } from "react"
 import AddTask from './components/AddTask';
+import { v4 } from 'uuid';
 
 
 const App =() => {
@@ -36,7 +37,9 @@ const onToggle = (id) => {
 )}
 
 const onAdd = (task) => {
-  console.log('task : ' + task);
+  let id = v4();
+  const newTask = {id, ...task};
+  setTasks([...tasks, newTask]);
 }
 
   return (
